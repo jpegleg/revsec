@@ -28,6 +28,7 @@ ls -larth > /var/log/crawl/low"$diffdir"/data.larth
 diff /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev > /var/log/crawl/low"$diffdir"/data."$DATESTAMP".diff &&
 yes | cp /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev
 echo "$diffdir" >> /var/log/crawldiff.log;
+date >> /var/log/crawldiff.log;
 cat /var/log/crawl/low"$diffdir"/data."$DATESTAMP".diff >> /var/log/crawldiff.log
 }
 
@@ -56,5 +57,5 @@ done
 
 for y in $(cat /var/log/crawl/.pwd); do
     cd /"$y"
-    runit 
+    runit
 done
