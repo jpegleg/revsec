@@ -2,10 +2,6 @@
 
 # Crawl internal file system for changes.
 
-
-
-# Import the "strip" from my CryptoCore .bashrc but as stripdown
-
 mkdir -p /var/log/crawl 2> /dev/null
 touch /var/log/crawl/.filesystem
 mkdir /var/log/crawl/low 2> /dev/null
