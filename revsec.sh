@@ -12,7 +12,7 @@ mkdir /var/log/crawl/low 2> /dev/null
 chown 755 /var/log/crawl/low
 diffdir=$(pwd | cut -f2-999)
 
-DATESTAMP=$(date '+%H%M%S')
+DATESTAMP=$(date '+%Y-%m-%d-%H-%M-%S')
 cd /
 chmod 777 /var/log/crawl/*
 
