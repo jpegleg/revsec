@@ -6,17 +6,13 @@
 
 # Import the "strip" from my CryptoCore .bashrc but as stripdown
 
-stripdown () {
-tr -d '\040\011\012\015'
-}
-
-mkdir /var/log/crawl 2> /dev/null
+mkdir -p /var/log/crawl 2> /dev/null
+touch /var/log/crawl/.filesystem
 mkdir /var/log/crawl/low 2> /dev/null
-touch /var/log/crawl/.filesystem 2> /dev/null
 chown 755 /var/log/crawl/low
 diffdir=$(pwd | cut -f2-999)
 
-DATESTAMP=$(date | stripdown )
+DATESTAMP=$(date '+%H%M%S')
 cd /
 chmod 777 /var/log/crawl/*
 
@@ -58,5 +54,5 @@ done
 
 for y in $(cat /var/log/crawl/.pwd); do
     cd /"$y"
-    runit
+    runit 
 done
