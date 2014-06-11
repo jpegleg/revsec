@@ -12,6 +12,7 @@ tr -d '\040\011\012\015'
 
 mkdir /var/log/crawl 2> /dev/null
 mkdir /var/log/crawl/low 2> /dev/null
+touch /var/log/crawl/.filesystem 2> /dev/null
 chown 755 /var/log/crawl/low
 diffdir=$(pwd | cut -f2-999)
 
