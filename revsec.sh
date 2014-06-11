@@ -29,20 +29,9 @@ date >> /var/log/crawldiff.log;
 cat /var/log/crawl/low"$diffdir"/data."$DATESTAMP".diff >> /var/log/crawldiff.log
 }
 
-function lsdirs {
-touch /var/log/crawl/low"$diffdir"/data.ls
-date > /var/log/crawl/low"$diffdir"/data.ls
-ls > /var/log/crawl/low"$diffdir"/data.ls
-}
 larthdiff
-lsdirs
 
 # Crawl the system in a loop.
-
-function runit {
-    larthdiff;
-    lsdirs;
-}
 
 # Clean up.
 cp /dev/null /var/log/crawl/.pwd
@@ -54,5 +43,5 @@ done
 
 for y in $(cat /var/log/crawl/.pwd); do
     cd /"$y"
-    runit 
+    larthdiff
 done
