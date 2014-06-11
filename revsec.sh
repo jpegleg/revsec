@@ -10,7 +10,7 @@ diffdir=$(pwd | cut -f2-999)
 
 DATESTAMP=$(date '+%Y-%m-%d-%H-%M-%S')
 cd /
-chmod 777 /var/log/crawl/*
+chmod 755 /var/log/crawl/*
 
 function larthdiff {
     diffdir=$(pwd | cut -c2-999)
