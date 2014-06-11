@@ -38,7 +38,7 @@ cp /dev/null /var/log/crawl/.pwd
 # Main loop.
 for target in "$@"; do
 find "$target"  >> /var/log/crawl/.pwd
-runit
+larthdiff
 done
 
 for y in $(cat /var/log/crawl/.pwd); do
