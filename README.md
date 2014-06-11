@@ -5,5 +5,5 @@
  Set the $target after the exec script like this to catalog /tmp
  ./revexec.sh /tmp
  
- Then visit /var/low/crawl for your data.
+ Then visit /var/log/crawl for your data.
  Run as root.
