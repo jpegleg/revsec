@@ -7,4 +7,4 @@
  ./revexec.sh /tmp
  
  Then visit /var/log/crawl for your data.
- Run as root.
+ Run with super user privileges.
