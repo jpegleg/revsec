@@ -26,8 +26,7 @@ touch /var/log/crawl/low"$diffdir"/data.larth.prev
 touch /var/log/crawl/low"$diffdir"/data.larth
 cp /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev
 touch /var/log/crawl/low"$diffdir"/data.larth
-date >> /var/log/crawl/low"$diffdir"/data.larth
-ls -larth >> /var/log/crawl/low"$diffdir"/data.larth
+ls -larth > /var/log/crawl/low"$diffdir"/data.larth
 diff /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev > /var/log/crawl/low"$diffdir"/data."$DATESTAMP"diff
 cat /var/log/crawl/low"$diffdir"/data."$DATESTAMP"diff >> /var/log/crawldiff.log
 }
@@ -53,9 +52,9 @@ cp /dev/null /var/log/crawl/.pwd
 for target in "$@"; do
 find "$target"  >> /var/log/crawl/.pwd
 runit
-done
+done  
 
 for y in $(cat /var/log/crawl/.pwd); do
     cd /"$y"
-    runit
+    runit 
 done
