@@ -24,11 +24,10 @@ diffdir=$(pwd | cut -c2-999)
 echo /var/log/crawl/low"$diffdir" | xargs mkdir -p
 touch /var/log/crawl/low"$diffdir"/data.larth.prev
 touch /var/log/crawl/low"$diffdir"/data.larth
-cp /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev
-touch /var/log/crawl/low"$diffdir"/data.larth
 ls -larth > /var/log/crawl/low"$diffdir"/data.larth
-diff /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev > /var/log/crawl/low"$diffdir"/data."$DATESTAMP"diff
-cat /var/log/crawl/low"$diffdir"/data."$DATESTAMP"diff >> /var/log/crawldiff.log
+diff /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev > /var/log/crawl/low"$diffdir"/data."$DATESTAMP".diff
+cp /var/log/crawl/low"$diffdir"/data.larth /var/log/crawl/low"$diffdir"/data.larth.prev
+cat /var/log/crawl/low"$diffdir"/data."$DATESTAMP".diff >> /var/log/crawldiff.log
 }
 
 function lsdirs {
@@ -51,9 +50,9 @@ cp /dev/null /var/log/crawl/.pwd
 # Main loop.
 for target in "$@"; do
 find "$target"  >> /var/log/crawl/.pwd
-runit
-done  
-
+runit 
+done
+      
 for y in $(cat /var/log/crawl/.pwd); do
     cd /"$y"
     runit 
