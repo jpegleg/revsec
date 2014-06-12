@@ -35,7 +35,7 @@ for target in "$@"; do
     larthdiff
 done
 
-for y in $(cat /var/log/crawl/.pwd); do
-    cd /"$y"
+for rdir in $(cat /var/log/crawl/.pwd); do
+    cd /"$rdir"
     larthdiff
 done
