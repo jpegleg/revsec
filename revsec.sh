@@ -3,7 +3,9 @@
 # Crawl internal file system for changes.
 
 mkdir -p /var/log/crawl/low 2> /dev/null
-touch /var/log/crawl/.filesysteml
+touch /var/log/crawl/.filesystem
+chown 755 /var/log/crawl
+chown 755 /var/log/crawl/.filesystem
 chown 755 /var/log/crawl/low
 diffdir=$(pwd | cut -f2-999)
 
@@ -13,7 +15,7 @@ chmod 755 /var/log/crawl/*
 
 function larthdiff {
     diffdir=$(pwd | cut -c2-999)
-    echo /var/log/crawl/low"$diffdir" | xargs mkdir -p
+    mkdir -p /var/log/crawl/low"$diffdir" 
     touch /var/log/crawl/low"$diffdir"/data.larth.prev
     touch /var/log/crawl/low"$diffdir"/data.larth
     ls -larth > /var/log/crawl/low"$diffdir"/data.larth
