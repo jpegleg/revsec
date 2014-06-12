@@ -3,7 +3,7 @@
 # Crawl internal file system for changes.
 
 mkdir -p /var/log/crawl/low 2> /dev/null
-touch /var/log/crawl/.filesystem
+touch /var/log/crawl/.pwd
 
 diffdir=$(pwd | cut -f2-999)
 
