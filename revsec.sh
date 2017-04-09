@@ -9,8 +9,7 @@ diffdir=$(pwd | cut -f2-999)
 
 DATESTAMP=$(date '+%Y-%m-%d-%H-%M-%S')
 cd /
-
-function larthdiff {
+larthdiff() {
     diffdir=$(pwd | cut -c2-999)
     mkdir -p /var/log/crawl/low"$diffdir" 
     touch /var/log/crawl/low"$diffdir"/data.larth.prev
