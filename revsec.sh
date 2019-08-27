@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Crawl internal file system for changes.
+# Crawl internal file system for changes without computing hashes, just using 'ls' gathered information.
 
 mkdir -p /var/log/crawl/low 2> /dev/null
 touch /var/log/crawl/.pwd
